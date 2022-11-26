@@ -1,5 +1,5 @@
 import flatpickr from "flatpickr";
-const flatpickr = require("flatpickr");
+// const flatpickr = require("flatpickr");
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
 
@@ -28,7 +28,8 @@ const options = {
         } else {
             refs.btnStart.disabled = false;
         }
-            refs.btnStart.addEventListener('click', onStart);
+        refs.btnStart.addEventListener('click', onStart);
+        
     }
         
 }
@@ -42,7 +43,7 @@ function onStart() {
     timerId = setInterval(() => {
         let ms = timerDeadline - Date.now();
 
-        if (ms <= 1000) {
+        if (ms < 1000) {
             clearInterval(timerId);
         }
 
@@ -52,7 +53,7 @@ function onStart() {
             refs.hours.textContent =  addLeadinZero(data.hours);
             refs.minutes.textContent = addLeadinZero(data.minutes);
             refs.seconds.textContent = addLeadinZero(data.seconds);
-        
+
     }, 1000);
 }
 
